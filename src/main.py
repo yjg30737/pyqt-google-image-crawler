@@ -159,6 +159,7 @@ class MainWindow(QMainWindow):
 
     def __started(self):
         self.__loadingLbl.setVisible(True)
+        self.__loadingLbl.start()
         print('started')
 
     def __finished(self):
@@ -166,6 +167,7 @@ class MainWindow(QMainWindow):
             self.__notifierWidget = NotifierWidget(informative_text='Task Complete', detailed_text='Click this!')
             self.__notifierWidget.show()
             self.__notifierWidget.doubleClicked.connect(self.show)
+        self.__loadingLbl.stop()
         self.__loadingLbl.setVisible(False)
         print('finished')
 
